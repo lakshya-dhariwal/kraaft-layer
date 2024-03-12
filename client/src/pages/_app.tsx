@@ -25,6 +25,7 @@ const config = getDefaultConfig({
 
   chains: [
     avalanche,
+    //@ts-ignore
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [sepolia] : []),
   ],
   ssr: true,

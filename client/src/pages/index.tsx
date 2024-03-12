@@ -19,10 +19,10 @@ export default function Home() {
     <div className="  text-white h-[80vh]  flex flex-col items-center max-w-[1000px] p-24 px-10 pt-10  mx-auto sm:py-12">
       <div className="w-[80vw] cal-font  flex flex-col justify-center items-center my-[5rem]">
         <span className=" text-neutral-800 font-semibold  border-brandGreen bg-brandGreen cursor-pointer rounded-full text-[12px] px-3">
-          Simple intiuitive creator for automated rewards distribution.
+          Simple Intuitive creator for automated rewards distribution campaigns.
         </span>
         <h1 className="text-[55px] mt-5 font-semibold text-[#EDEDED] font-cal">
-          No Code airdrop, giveaway and bounty creator
+          No-Code airdrop, giveaway and bounty campaign creator
         </h1>
         <h1 className="text-[#EDEDED]  text-[25px] text-center mt-[40px] mb-5">
           <div className="flex flex-row items-center justify-center mx-auto">
