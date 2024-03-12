@@ -10,7 +10,7 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
       },
       colors: {
-        brandGreen: "#3BDFA0",
+        brandGreen: "#3ECF8E",
         custom: {
           1: " #23262F",
           2: "#121214",

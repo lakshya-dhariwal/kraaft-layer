@@ -13,7 +13,7 @@ type IProps = {
 export const Button: React.FC<IProps> = (props) => {
   const STYLES =
     props.mode === "green"
-      ? "bg-brandGreen text-white border border-green-600 hover:bg-brandGreen"
+      ? "bg-brandGreen text-gray-800 border border-green-600 hover:bg-brandGreen"
       : "bg-neutral-800 text-gray-300 border border-zinc-600 hover:bg-zinc-800";
 
   const SIZE = props.small

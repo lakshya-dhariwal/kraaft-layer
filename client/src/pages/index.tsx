@@ -50,7 +50,7 @@ export default function Home() {
             mode="dark"
             onClick={() => {
               if (!address)
-                toast.error("Connect wallet first", {
+                return toast.error("Connect wallet first", {
                   style: {
                     borderRadius: "10px",
                     background: "#333",
