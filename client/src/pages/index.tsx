@@ -6,10 +6,15 @@ import axios from "axios";
 import { Button } from "@/components/button";
 import Link from "next/link";
 import PowerloomLogo from "@/components/icons/powerloom.logo";
+import { useAccount } from "wagmi";
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const { address } = useAccount();
+  const router = useRouter();
   return (
     <div className="  text-white h-[80vh]  flex flex-col items-center max-w-[1000px] p-24 px-10 pt-10  mx-auto sm:py-12">
       <div className="w-[80vw] cal-font  flex flex-col justify-center items-center my-[5rem]">
@@ -40,15 +45,27 @@ export default function Home() {
           </div>
         </h1>{" "}
         <div className="flex justify-around  my-5 flex-row w-[20vw] mx-auto ">
-          <Link href={`/`}>
-            <Button type="button" mode="dark">
-              <div className="flex flex-row gap-[10px] items-center ">
-                <h1 className="text-brandGrey font-semibold ">Kraaft Now</h1>
-              </div>
-            </Button>
-          </Link>
+          <Button
+            type="button"
+            mode="dark"
+            onClick={() => {
+              if (!address)
+                toast.error("Connect wallet first", {
+                  style: {
+                    borderRadius: "10px",
+                    background: "#333",
+                    color: "#fff",
+                  },
+                });
+              router.push("/app");
+            }}
+          >
+            <div className="flex flex-row gap-[10px] items-center ">
+              <h1 className="text-brandGrey font-semibold ">Kraaft Now</h1>
+            </div>
+          </Button>
           <a
-            href="https://github.com/lakshya-dhariwal/HuddleBots"
+            href="https://github.com/lakshya-dhariwal/kraaft-layer"
             target="_blank"
             referrerPolicy="no-referrer"
           >

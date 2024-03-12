@@ -15,6 +15,7 @@ import {
 import { WagmiProvider } from "wagmi";
 import { avalanche } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "react-hot-toast";
 
 const { wallets } = getDefaultWallets();
 
@@ -34,14 +35,17 @@ const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale } = useRouter() as { locale: Locale };
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider locale={locale}>
-          <Navbar connect={<ConnectButton />} />
-          <Component {...pageProps} />
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+    <main className="text-white">
+      <WagmiProvider config={config}>
+        <QueryClientProvider client={queryClient}>
+          <RainbowKitProvider locale={locale}>
+            <Toaster />
+            <Navbar connect={<ConnectButton />} />
+            <Component {...pageProps} />
+          </RainbowKitProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </main>
   );
 }
 
