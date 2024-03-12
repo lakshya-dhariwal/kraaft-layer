@@ -3,23 +3,30 @@ import toast from "react-hot-toast";
 import { Button } from "../../components/button";
 import { useRouter } from "next/router";
 import { useAccount } from "wagmi";
+import { supabase } from "@/services/supabase";
 
 function Creator() {
   const router = useRouter();
   const [title, setTitle] = useState<string | null>(null);
   const [desc, setDesc] = useState<string | null>(null);
   const [contract, setContract] = useState<string | null>(null);
+  const [amount, setAmount] = useState<number | null>(null);
   const { address } = useAccount();
 
-  const deploy = (e: any) => {
+  const deploy = async (e: any) => {
     e.preventDefault();
-    const data = {
+    const values = {
       title,
       desc,
       contract,
       creator: address,
+      amount,
     };
     toast.success("Campaign Created");
+    const { data, error } = await supabase
+      .from("campaigns")
+      .insert([{ ...values }]);
+    console.log(data);
   };
   return (
     <div className="max-w-[1000px] mx-auto pt-8">
@@ -31,6 +38,9 @@ function Creator() {
       >
         <h1 className="cal-font mb-1 text-xl">Title</h1>
         <input
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
           type="text"
           required
           className="bg-gray-200 text-gray-800 border border-slate-600 rounded w-full p-2"
@@ -38,6 +48,9 @@ function Creator() {
 
         <h1 className="cal-font mb-1 mt-2 text-xl">Description</h1>
         <textarea
+          onChange={(e) => {
+            setDesc(e.target.value);
+          }}
           rows={2}
           className="bg-gray-200  text-gray-800 border  border-slate-600 rounded w-full p-2"
         />
@@ -93,6 +106,18 @@ function Creator() {
         <h1 className="cal-font mb-1 text-lg mt-1">Contract Address</h1>
         <input
           type="text"
+          onChange={(e) => {
+            setContract(e.target.value);
+          }}
+          required
+          className="bg-gray-200 text-gray-800 border border-slate-600 rounded w-full p-2"
+        />
+        <h1 className="cal-font mb-1 text-lg mt-2">Claim Amount</h1>
+        <input
+          type="number"
+          onChange={(e) => {
+            setAmount(parseInt(e.target.value));
+          }}
           required
           className="bg-gray-200 text-gray-800 border border-slate-600 rounded w-full p-2"
         />
