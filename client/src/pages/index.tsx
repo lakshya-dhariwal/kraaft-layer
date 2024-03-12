@@ -21,7 +21,7 @@ export default function Home() {
         <span className=" text-neutral-800 font-semibold  border-brandGreen bg-brandGreen cursor-pointer rounded-full text-[12px] px-3">
           Simple Intuitive creator for automated rewards distribution campaigns.
         </span>
-        <h1 className="text-[55px] mt-5 font-semibold text-[#EDEDED] font-cal">
+        <h1 className="text-[80px] mt-5 font-semibold text-[#EDEDED] font-cal text-center">
           No-Code airdrop, giveaway and bounty campaign creator
         </h1>
         <h1 className="text-[#EDEDED]  text-[25px] text-center mt-[40px] mb-5">

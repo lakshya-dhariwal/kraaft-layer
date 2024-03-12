@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 function app() {
   return (
@@ -19,6 +20,53 @@ function app() {
         />
 
         <h1 className="cal-font mb-1 mt-2 text-xl">Gating Condition</h1>
+        <div className="rounded flex flex-row items-center  border border-zinc-600  w-fit">
+          <div className="bg-brandGreen m-1 text-gray-800 p-2 rounded cursor-pointer">
+            Contract Interaction
+          </div>
+          <div
+            className=" my-1  p-2 rounded-lg cursor-pointer"
+            onClick={() => {
+              toast("Feature coming soon", {
+                style: {
+                  borderRadius: "10px",
+                  background: "#333",
+                  color: "#fff",
+                },
+              });
+            }}
+          >
+            Social Media
+          </div>
+          <div
+            className=" my-1  p-2 rounded-lg cursor-pointer"
+            onClick={() => {
+              toast("Feature coming soon", {
+                style: {
+                  borderRadius: "10px",
+                  background: "#333",
+                  color: "#fff",
+                },
+              });
+            }}
+          >
+            Task Submission
+          </div>
+          <div
+            className=" my-1  p-2 rounded-lg cursor-pointer"
+            onClick={() => {
+              toast("Feature coming soon", {
+                style: {
+                  borderRadius: "10px",
+                  background: "#333",
+                  color: "#fff",
+                },
+              });
+            }}
+          >
+            Token Holders
+          </div>
+        </div>
       </div>
     </div>
   );
