@@ -24,7 +24,7 @@ function navbar(props: any) {
                 Creator
               </h1>
             </Link>
-            <Link href="/app/all">
+            <Link href="/app/campaigns">
               <h1 className="text-gray-300 hover:text-brandGreen cursor-pointer">
                 Your campaigns
               </h1>

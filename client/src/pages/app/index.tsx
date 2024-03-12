@@ -27,6 +27,8 @@ function Creator() {
       .from("campaigns")
       .insert([{ ...values }]);
     console.log(data);
+
+    router.push("/app/campaigns");
   };
   return (
     <div className="max-w-[1000px] mx-auto pt-8">
@@ -125,9 +127,6 @@ function Creator() {
           type="submit"
           mode="green"
           className="w-full mt-8 text-gray-800  cal-font"
-          onClick={() => {
-            router.push("/app/campaigns");
-          }}
         >
           Deploy Campaign Contract
         </Button>
