@@ -49,7 +49,8 @@ function Claim() {
 
           <Button
             type="button"
-            mode="green"
+            mode="dark"
+            className="w-fit"
             onClick={handleCheckEligibility}
             small
           >
@@ -73,7 +74,15 @@ function Claim() {
                       <Button
                         type="button"
                         mode="green"
-                        onClick={handleCheckEligibility}
+                        onClick={async () => {
+                          supabase
+                            .from("campaigns")
+                            .update({
+                              claims: [address, ...(data?.claims as [])],
+                            })
+                            .match({ id: router.query.id });
+                          handleCheckEligibility();
+                        }}
                       >
                         Claim Amount
                       </Button>

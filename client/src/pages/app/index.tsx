@@ -21,6 +21,7 @@ function Creator() {
       contract,
       creator: address,
       amount,
+      claims: [],
     };
     toast.success("Campaign Created");
     const { data, error } = await supabase
