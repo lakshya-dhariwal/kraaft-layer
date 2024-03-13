@@ -1,6 +1,7 @@
 import { Button } from "@/components/button";
 import { supabase } from "@/services/supabase";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useAccount } from "wagmi";
 
 function all() {
@@ -20,7 +21,7 @@ function all() {
   return (
     <div className="max-w-[1000px] mx-auto pt-8">
       <h1 className="cal-font text-3xl text-center">All created campaigns</h1>
-      <div className="grid grid-cols-3 mt-8">
+      <div className="grid grid-cols-3 gap-5 mt-8">
         {data?.map((i: any) => {
           return (
             <div
@@ -43,6 +44,14 @@ function all() {
                   navigator.clipboard.writeText(
                     window.location.host + "/claim/" + i?.id
                   );
+                  toast("Copied to clipbaord", {
+                    icon: "👏",
+                    style: {
+                      borderRadius: "10px",
+                      background: "#333",
+                      color: "#fff",
+                    },
+                  });
                 }}
                 className="w-full mt-1 text-gray-800  cal-font"
               >

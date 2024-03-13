@@ -9,17 +9,22 @@ function Claim() {
   const router = useRouter();
   const [data, setData] = useState<any>(null);
   const { address } = useAccount();
+  const ID = router.query.id;
   const getCampaign = async () => {
-    const { data: campaign, error } = await supabase
-      .from("campaigns")
-      .select("*")
-      .eq("id", router.query.id);
-    console.log(campaign);
-    setData(campaign?.[0] as any);
+    if (ID) {
+      const { data: campaign, error } = await supabase
+        .from("campaigns")
+        .select("*")
+        .eq("id", ID);
+      console.log(campaign);
+      setData(campaign?.[0] as any);
+    }
   };
   useEffect(() => {
-    getCampaign();
-  }, [address]);
+    if (address && ID) {
+      getCampaign();
+    }
+  }, [address, router.query.id]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [isEligible, setIsEligible] = useState<boolean | null>(null);
